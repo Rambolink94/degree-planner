@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Degree_Planner.Pages.TermPage"
+             Title="Term Add / Edit">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Button Text="Save"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#002f51"
+                        BorderColor="#002f51"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="SaveButtonClicked"/>
+                        <Button x:Name="DeleteButton"
+                        Text="Delete"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#ff5050"
+                        BorderColor="#ff5050"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="DeleteButtonClicked"/>
+                    </StackLayout>
+                    <!-- GENERAL -->
+                    <Frame BackgroundColor="#002f51"
+                       Padding="10">
+                        <Label Text="General"
+                           TextColor="White"
+                           FontSize="24"
+                           FontAttributes="Bold"/>
+                    </Frame>
+                    <StackLayout Padding="10, 0, 10, 0">
+                        <Label Text="Name"
+                       FontSize="14"/>
+                        <Entry x:Name="termName"
+                       Text="{Binding CurrentTerm.Name}"
+                       Placeholder="Name..."/>
+                        <StackLayout Orientation="Horizontal"
+                                 Margin="0, 10, 0, 10">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Start Date"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"/>
+                                <DatePicker x:Name="startDate"
+                                Date="{Binding CurrentTerm.Start}"
+                                    Format="MMM dd"
+                                            DateSelected="startDate_DateSelected"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="EndAndExpand">
+                                <Label Text="End Date"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"/>
+                                <DatePicker x:Name="endDate"
+                                Date="{Binding CurrentTerm.End}"
+                                    Format="MMM dd"
+                                            DateSelected="endDate_DateSelected"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Switch IsToggled="{Binding CurrentTerm.IsActive}"/>
+                            <Label Text="Term is Active" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Frame BackgroundColor="#002f51"
+                       Padding="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Courses"
+                           TextColor="White"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                                   HorizontalOptions="StartAndExpand"/>
+                            <Frame CornerRadius="50"
+                                           WidthRequest="30"
+                                           HeightRequest="30"
+                                           Padding="5"
+                                           Margin="10, 0, 0, 0">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="NewCourseTapped"/>
+                                    </Frame.GestureRecognizers>
+                                    <Image Source="plusIcon.png"
+                                               Aspect="AspectFill"
+                                               BackgroundColor="Transparent"/>
+                                </Frame>
+                            </StackLayout>
+                    </Frame>
+                    <StackLayout>
+                        <CollectionView x:Name="coursesCollectionView"
+                                        SelectionMode="Single"
+                                        SelectionChanged="CourseSelectionChanged"
+                                        HeightRequest="400">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout HorizontalOptions="EndAndExpand"
+                                         Spacing="10"
+                                         Padding="5">
+                                        <Frame CornerRadius="5"
+                                       Padding="0"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Frame VerticalOptions="FillAndExpand"
+                                               HorizontalOptions="FillAndExpand"
+                                               BackgroundColor="White"
+                                               Padding="0"
+                                               CornerRadius="0"
+                                               WidthRequest="60">
+                                                    <Frame.Triggers>
+                                                        <DataTrigger TargetType="Frame" Binding="{Binding Status}" Value="InProgress">
+                                                            <Setter Property="BackgroundColor" Value="White"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Frame" Binding="{Binding Status}" Value="Completed">
+                                                            <Setter Property="BackgroundColor" Value="#558f45"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Frame" Binding="{Binding Status}" Value="PlanToTake">
+                                                            <Setter Property="BackgroundColor" Value="LightGray"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Frame" Binding="{Binding Status}" Value="Dropped">
+                                                            <Setter Property="BackgroundColor" Value="#37474f"/>
+                                                        </DataTrigger>
+                                                    </Frame.Triggers>
+                                                    <Label Text="{Binding CreditHours}"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"
+                                                   FontSize="24"
+                                                   TextColor="#37474f"
+                                                   FontAttributes="Bold">
+                                                        <Label.Triggers>
+                                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Dropped">
+                                                                <Setter Property="TextColor" Value="White"/>
+                                                            </DataTrigger>
+                                                        </Label.Triggers>
+                                                    </Label>
+                                                </Frame>
+                                                <StackLayout WidthRequest="160"
+                                                     Padding="10">
+                                                    <Label Text="{Binding Name}"
+                                                   LineBreakMode="TailTruncation"
+                                                   FontSize="14"
+                                                   TextColor="Black"/>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="profileIcon.png"
+                                                       WidthRequest="12"
+                                                       HeightRequest="12"/>
+                                                        <Label Text="{Binding Instructor}"
+                                                       FontSize="12"
+                                                       TextColor="Gray"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="calendarIcon.png"
+                                                       WidthRequest="12"
+                                                       HeightRequest="12"/>
+                                                        <Label Text="{Binding Date}"
+                                                   FontSize="12"
+                                                   TextColor="Gray"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal"
+                                                     HorizontalOptions="EndAndExpand"
+                                                     VerticalOptions="CenterAndExpand"
+                                                     Margin="0, 0, 15, 0">
+                                                    <Frame CornerRadius="50"
+                                                   HeightRequest="45"
+                                                   WidthRequest="45"
+                                                   Padding="0">
+                                                        <Frame.Triggers>
+                                                            <DataTrigger TargetType="Frame" Binding="{Binding Assessments[0].IsComplete}" Value="true">
+                                                                <Setter Property="BackgroundColor" Value="#558f45"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Frame" Binding="{Binding Assessments[0].IsComplete}" Value="false">
+                                                                <Setter Property="BackgroundColor" Value="White"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Frame"
+                                                             Binding="{Binding Assessments[0].TypeLetter}"
+                                                             Value="x:null">
+                                                                <Setter Property="IsVisible" Value="false"/>
+                                                            </DataTrigger>
+                                                        </Frame.Triggers>
+                                                        <Label Text="{Binding Assessments[0].TypeLetter}"
+                                                       FontSize="24"
+                                                       TextColor="White"
+                                                       FontAttributes="Bold"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center">
+                                                            <Label.Triggers>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding Assessments[0].IsComplete}" Value="true">
+                                                                    <Setter Property="TextColor" Value="White"/>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding Assessments[0].IsComplete}" Value="false">
+                                                                    <Setter Property="TextColor" Value="#37474f"/>
+                                                                </DataTrigger>
+                                                            </Label.Triggers>
+                                                        </Label>
+                                                    </Frame>
+                                                    <Frame CornerRadius="50"
+                                                   HeightRequest="45"
+                                                   WidthRequest="45"
+                                                   Padding="0">
+                                                        <Frame.Triggers>
+                                                            <DataTrigger TargetType="Frame" Binding="{Binding Assessments[1].IsComplete}" Value="true">
+                                                                <Setter Property="BackgroundColor" Value="#558f45"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Frame" Binding="{Binding Assessments[1].IsComplete}" Value="false">
+                                                                <Setter Property="BackgroundColor" Value="White"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Frame"
+                                                             Binding="{Binding Assessments[1].TypeLetter, TargetNullValue=''}"
+                                                             Value="">
+                                                                <Setter Property="IsVisible" Value="False"/>
+                                                            </DataTrigger>
+                                                        </Frame.Triggers>
+                                                        <Label Text="{Binding Assessments[1].TypeLetter}"
+                                                       FontSize="24"
+                                                       TextColor="White"
+                                                       FontAttributes="Bold"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center">
+                                                            <Label.Triggers>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding Assessments[1].IsComplete}" Value="true">
+                                                                    <Setter Property="TextColor" Value="White"/>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding Assessments[1].IsComplete}" Value="false">
+                                                                    <Setter Property="TextColor" Value="#37474f"/>
+                                                                </DataTrigger>
+                                                            </Label.Triggers>
+                                                        </Label>
+                                                    </Frame>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Button Text="Save"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#002f51"
+                        BorderColor="#002f51"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="SaveButtonClicked"/>
+                        <Button x:Name="DeleteButton2"
+                            Text="Delete"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#ff5050"
+                        BorderColor="#ff5050"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="DeleteButtonClicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

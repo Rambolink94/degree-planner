@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Degree_Planner.Pages.AssessmentPage"
+             Title="Assessment Add / Edit">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Button Text="Save"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#002f51"
+                        BorderColor="#002f51"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="SaveButtonClicked"/>
+                    <Button x:Name="DeleteButton"
+                        Text="Delete"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#ff5050"
+                        BorderColor="#ff5050"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="DeleteButtonClicked"/>
+                </StackLayout>
+                <Frame BackgroundColor="#002f51"
+                       Padding="10">
+                    <Label Text="Assessment Details"
+                           TextColor="White"
+                           FontSize="24"
+                           FontAttributes="Bold"/>
+                </Frame>
+                <StackLayout Padding="10, 0, 10, 0">
+                    <Label Text="Name"
+                       FontSize="14"/>
+                    <Entry x:Name="assessmentName"
+                       Text="{Binding Name}"
+                       Placeholder="Name..."/>
+                    <Label Text="Type"
+                       FontSize="14"/>
+                    <Picker x:Name="assessmentType"
+                        Title="Select Status"/>
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="0, 10, 0, 10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Start Date"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"/>
+                            <DatePicker x:Name="startDate"
+                                Date="{Binding Start}"
+                                    Format="MMM dd"
+                                        DateSelected="startDate_DateSelected"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="EndAndExpand">
+                            <Label Text="End Date"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"/>
+                            <DatePicker x:Name="endDate"
+                                Date="{Binding End}"
+                                    Format="MMM dd"
+                                        DateSelected="endDate_DateSelected"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Text="Notifications"
+                       FontSize="14"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Switch IsToggled="{Binding DisplayNotifications}"/>
+                        <Label Text="Notify me when Course is due."
+                           FontSize="14"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Button Text="Save"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#002f51"
+                        BorderColor="#002f51"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="SaveButtonClicked"/>
+                    <Button x:Name="DeleteButton2"
+                        Text="Delete"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#ff5050"
+                        BorderColor="#ff5050"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="DeleteButtonClicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

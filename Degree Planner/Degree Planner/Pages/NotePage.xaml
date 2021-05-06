@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Degree_Planner.Pages.NotePage"
+             Title="Note Add / Edit">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" BackgroundColor="#002f51"
+                       Padding="10">
+                    <Label Text="Note"
+                           TextColor="White"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           VerticalTextAlignment="Center"/>
+                        <Button Text="Share"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#3486eb"
+                        BorderColor="#3486eb"
+                        BorderWidth="5"
+                        HorizontalOptions="EndAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="ShareButtonClicked"/>
+                </StackLayout>
+                <Entry x:Name="noteName" Placeholder="Note Name..." Text="{Binding Name}"/>
+                <Editor x:Name="noteText" Placeholder="Note..."
+                        Text="{Binding Text}"
+                        HeightRequest="300"/>
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Button Text="Save"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#002f51"
+                        BorderColor="#002f51"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="SaveButtonClicked"/>
+                    <Button x:Name="DeleteButton"
+                            Text="Delete"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#ff5050"
+                        BorderColor="#ff5050"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="DeleteButtonClicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

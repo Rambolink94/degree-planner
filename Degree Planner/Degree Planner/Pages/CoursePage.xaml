@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Degree_Planner.Pages.CoursePage"
+             Title="Course Add / Edit">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <!-- GENERAL -->
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Button Text="Save"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#002f51"
+                        BorderColor="#002f51"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="SaveButtonClicked"/>
+                    <Button x:Name="DeleteButton"
+                        Text="Delete"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#ff5050"
+                        BorderColor="#ff5050"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="DeleteButtonClicked"/>
+                </StackLayout>
+                <Frame BackgroundColor="#002f51"
+                       Padding="10">
+                    <Label Text="General"
+                           TextColor="White"
+                           FontSize="24"
+                           FontAttributes="Bold"/>
+                </Frame>
+                <StackLayout Padding="10">
+                    <Label Text="Name"
+                       FontSize="14"/>
+                    <Entry x:Name="courseName"
+                       Text="{Binding CurrentCourse.Name}"
+                       Placeholder="Name..."/>
+                    <Label Text="Status"
+                       FontSize="14"/>
+                    <Picker x:Name="courseStatus"
+                        Title="Select Status"/>
+                    <Label Text="Credit Hours" FontSize="14" />
+                    <Entry x:Name="creditHours" Text="{Binding CurrentCourse.CreditHours}" Placeholder="Credit Hours" Keyboard="Numeric"/>
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="0, 10, 0, 10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Start Date"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"/>
+                            <DatePicker x:Name="startDate"
+                                Date="{Binding CurrentCourse.Start}"
+                                    Format="MMM dd"
+                                        DateSelected="startDate_DateSelected"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="EndAndExpand">
+                            <Label Text="End Date"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"/>
+                            <DatePicker x:Name="endDate"
+                                Date="{Binding CurrentCourse.End}"
+                                    Format="MMM dd"
+                                        DateSelected="endDate_DateSelected"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Text="Notifications"
+                       FontSize="14"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Switch IsToggled="{Binding CurrentCourse.DisplayNotifications}"/>
+                        <Label Text="Notify me when Course is due."
+                           FontSize="14" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <!-- INSTRUCTOR -->
+                <Frame BackgroundColor="#002f51"
+                       Padding="10">
+                    <Label Text="Instructor"
+                           TextColor="White"
+                           FontSize="24"
+                           FontAttributes="Bold"/>
+                </Frame>
+                <StackLayout Padding="10">
+                    <Label Text="Name"
+                       FontSize="14"/>
+                    <Entry x:Name="instructorName"
+                       Text="{Binding CurrentCourse.Instructor}"
+                       Placeholder="Name..."/>
+                    <Label Text="Phone #"
+                       FontSize="14"/>
+                    <Entry x:Name="phoneNumber"
+                       Text="{Binding CurrentCourse.Phone}"
+                       Placeholder="(###)-###-####"
+                           Keyboard="Telephone"/>
+                    <Label Text="Email"
+                       FontSize="14"/>
+                    <Entry x:Name="emailAddress"
+                       Text="{Binding CurrentCourse.Email}"
+                       Placeholder="Name..."
+                           Keyboard="Email"/>
+                </StackLayout>
+                
+                <!-- ASSESSMENT -->
+                <Frame BackgroundColor="#002f51"
+                       Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Assessment"
+                           TextColor="White"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                               HorizontalOptions="StartAndExpand"/>
+                        <Frame CornerRadius="50"
+                                           WidthRequest="30"
+                                           HeightRequest="30"
+                                           Padding="5"
+                                           Margin="10, 0, 0, 0">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="NewAssessmentTapped"/>
+                                </Frame.GestureRecognizers>
+                                <Image Source="plusIcon.png"
+                                               Aspect="AspectFill"
+                                               BackgroundColor="Transparent"/>
+                            </Frame>
+                        </StackLayout>
+                </Frame>
+                <StackLayout HeightRequest="200">
+                    <CollectionView x:Name="assessmentsCollectionView"
+                                    SelectionMode="Single"
+                                    SelectionChanged="AssessmentSelectionChanged">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Spacing="10"
+                                             Padding="5">
+                                    <Frame CornerRadius="5"
+                                           Padding="0"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame Padding="5"
+                                                   CornerRadius="0"
+                                                   WidthRequest="50">
+                                                <Label Text="{Binding TypeLetter}"
+                                                       TextColor="#37474f"
+                                                       FontSize="24"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"/>
+                                            </Frame>
+                                            <StackLayout Padding="10">
+                                                <Label Text="{Binding Name}"
+                                                   TextColor="Black"
+                                                   FontSize="24"/>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Image Source="calendarIcon.png"
+                                                           WidthRequest="12"
+                                                           HeightRequest="12"/>
+                                                    <Label Text="{Binding Date}"
+                                                           FontSize="12"
+                                                           TextColor="Gray"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <!-- NOTES -->
+                <Frame BackgroundColor="#002f51"
+                       Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Notes"
+                           TextColor="White"
+                           FontSize="24"
+                           FontAttributes="Bold"/>
+                        <Frame CornerRadius="50"
+                                           WidthRequest="30"
+                                           HeightRequest="30"
+                                           Padding="5"
+                                           Margin="10, 0, 0, 0">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="NewNoteTapped"/>
+                                </Frame.GestureRecognizers>
+                                <Image Source="plusIcon.png"
+                                               Aspect="AspectFill"
+                                               BackgroundColor="Transparent"/>
+                            </Frame>
+                        </StackLayout>
+                </Frame>
+                <StackLayout HeightRequest="400">
+                    <CollectionView x:Name="notesCollectionView"
+                                    SelectionMode="Single"
+                                    SelectionChanged="NoteSelectionChanged">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout HorizontalOptions="EndAndExpand"
+                                             Spacing="10"
+                                             Padding="5">
+                                    <Frame CornerRadius="5"
+                                           Padding="10"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand">
+                                        <StackLayout>
+                                            <Label Text="{Binding Name}"
+                                                   TextColor="Black"
+                                                   FontSize="24"/>
+                                            <Label Text="{Binding Text}"
+                                                   TextColor="Black"
+                                                   FontSize="14"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Button Text="Save"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#002f51"
+                        BorderColor="#002f51"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="SaveButtonClicked"/>
+                    <Button x:Name="DeleteButton2"
+                        Text="Delete"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#ff5050"
+                        BorderColor="#ff5050"
+                        BorderWidth="5"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="DeleteButtonClicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

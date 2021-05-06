@@ -1,0 +1,4 @@
+﻿Todo:
+--Make data trigger for current term
+--Save terms when save button is used
+--Implement notifications

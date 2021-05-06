@@ -1,0 +1,72 @@
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.deps.json
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\ref\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.pdb
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.csprojAssemblyReference.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\App.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.AssemblyInfoInputs.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.AssemblyInfo.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.csproj.CoreCompileInputs.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\XamlC.stamp
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\ref\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.pdb
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\AssessmentPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\CoursePage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\MainPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\NotePage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\TermPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.deps.json
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\ref\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.pdb
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.csprojAssemblyReference.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\App.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\AssessmentPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\CoursePage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\MainPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\NotePage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\TermPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.AssemblyInfoInputs.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.AssemblyInfo.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.csproj.CoreCompileInputs.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\XamlC.stamp
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\ref\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v3\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.pdb
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.deps.json
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\ref\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.pdb
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.csprojAssemblyReference.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\App.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\AssessmentPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\CoursePage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\MainPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\NotePage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\TermPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.AssemblyInfoInputs.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.AssemblyInfo.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.csproj.CoreCompileInputs.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\XamlC.stamp
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\ref\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_v4\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.pdb
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.deps.json
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\ref\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\bin\Debug\netstandard2.0\Degree Planner.pdb
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.csprojAssemblyReference.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\App.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\AssessmentPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\CoursePage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\MainPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\NotePage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Pages\TermPage.xaml.g.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.AssemblyInfoInputs.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.AssemblyInfo.cs
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.csproj.CoreCompileInputs.cache
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\XamlC.stamp
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\ref\Degree Planner.dll
+F:\WGU\Courses\C# Mobile\Task\Degree Planner_Complete_v1\Degree Planner\Degree Planner\obj\Debug\netstandard2.0\Degree Planner.pdb

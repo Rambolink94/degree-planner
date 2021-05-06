@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Degree_Planner.Pages.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:converters="clr-namespace:Degree_Planner.Data.Converters">
+    
+    <ContentPage.Resources>
+        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal"
+                         BackgroundColor="White"
+                         Margin="0"
+                         Padding="5">
+                <Label Text="Degree Planner"
+                       x:Name="appTitle"
+                       VerticalTextAlignment="Center"
+                       FontSize="24"
+                       TextColor="#002f51"/>
+                <Button Text="Reset"
+                        x:Name="resetButton"
+                        IsVisible="{Binding App.Database.developerOverride}"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#4486a1"
+                        BorderColor="#4486a1"
+                        BorderWidth="5"
+                        HorizontalOptions="EndAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="ResetDatabase_Clicked"/>
+                <Button Text="Add Term"
+                        TextColor="White"
+                        CharacterSpacing="5"
+                        FontAttributes="Bold"
+                        BackgroundColor="#002f51"
+                        BorderColor="#002f51"
+                        BorderWidth="5"
+                        HorizontalOptions="EndAndExpand"
+                        CornerRadius="5"
+                        Padding="10, 0, 10, 0"
+                        Clicked="AddTermClicked"/>
+            </StackLayout>
+            <RefreshView IsRefreshing="{Binding IsRefreshing, Mode=OneWay}" Command="{Binding RefreshCommand}">
+                <CollectionView x:Name="coursesCollectionView"
+                            SelectionMode="Single"
+                            SelectionChanged="CourseSelectionChanged"
+                            IsGrouped="true"
+                                ItemsSource="{Binding TermGroups}">
+                    <CollectionView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <Frame Padding="10"
+                               Margin="0"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand">
+                                <Frame.Triggers>
+                                    <DataTrigger TargetType="Frame" Binding="{Binding IsActive}" Value="False">
+                                        <Setter Property="BackgroundColor" Value="#002f51"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Frame" Binding="{Binding IsActive}" Value="True">
+                                        <Setter Property="BackgroundColor" Value="#1066a3"/>
+                                    </DataTrigger>
+                                </Frame.Triggers>
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout WidthRequest="200">
+                                        <Label Text="{Binding Name}"
+                                           FontSize="24"
+                                           LineBreakMode="TailTruncation"
+                                           TextColor="White"/>
+                                        <Label Text="{Binding Date}"
+                                           FontSize="16"
+                                           TextColor="LightGray"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                                        <Frame CornerRadius="50"
+                                           WidthRequest="30"
+                                           HeightRequest="30"
+                                           Padding="5"
+                                           Margin="10, 0, 0, 0">
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding EditTerm}"
+                                                                      Tapped="NewCourseTapped"/>
+                                            </Frame.GestureRecognizers>
+                                            <Image Source="plusIcon.png"
+                                               Aspect="AspectFill"
+                                               BackgroundColor="Transparent"/>
+                                        </Frame>
+                                        <Image Source="editIcon.png"
+                                       Margin="10"
+                                       WidthRequest="30"
+                                       HeightRequest="30">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding EditTerm}"
+                                                              Tapped="EditTermTapped"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.GroupHeaderTemplate>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout HorizontalOptions="EndAndExpand"
+                                     Spacing="10"
+                                     Padding="5">
+                                <Frame CornerRadius="5"
+                                   Padding="0"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="FillAndExpand"
+                                           BackgroundColor="White"
+                                           Padding="0"
+                                           CornerRadius="0"
+                                           WidthRequest="60">
+                                            <Frame.Triggers>
+                                                <DataTrigger TargetType="Frame" Binding="{Binding Status}" Value="InProgress">
+                                                    <Setter Property="BackgroundColor" Value="White"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Frame" Binding="{Binding Status}" Value="Completed">
+                                                    <Setter Property="BackgroundColor" Value="#558f45"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Frame" Binding="{Binding Status}" Value="PlanToTake">
+                                                    <Setter Property="BackgroundColor" Value="LightGray"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Frame" Binding="{Binding Status}" Value="Dropped">
+                                                    <Setter Property="BackgroundColor" Value="#37474f"/>
+                                                </DataTrigger>
+                                            </Frame.Triggers>
+                                            <Label Text="{Binding CreditHours}"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalTextAlignment="Center"
+                                               FontSize="24"
+                                               TextColor="#37474f"
+                                               FontAttributes="Bold">
+                                                <Label.Triggers>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Dropped">
+                                                        <Setter Property="TextColor" Value="White"/>
+                                                    </DataTrigger>
+                                                </Label.Triggers>
+                                            </Label>
+                                        </Frame>
+                                        <StackLayout WidthRequest="160"
+                                                 Padding="10">
+                                            <Label Text="{Binding Name}"
+                                               LineBreakMode="TailTruncation"
+                                               FontSize="14"
+                                               TextColor="Black"/>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="profileIcon.png"
+                                                   WidthRequest="12"
+                                                   HeightRequest="12"/>
+                                                <Label Text="{Binding Instructor}"
+                                                   FontSize="12"
+                                                   TextColor="Gray"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="calendarIcon.png"
+                                                   WidthRequest="12"
+                                                   HeightRequest="12"/>
+                                                <Label Text="{Binding Date}"
+                                               FontSize="12"
+                                               TextColor="Gray"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="EndAndExpand"
+                                                 VerticalOptions="CenterAndExpand"
+                                                 Margin="0, 0, 15, 0">
+                                            <Frame CornerRadius="50"
+                                               HeightRequest="45"
+                                               WidthRequest="45"
+                                               Padding="0"
+                                               IsVisible="{Binding Assessments[0].Type, Converter={StaticResource NullToVisibilityConverter}}">
+                                                <Frame.Triggers>
+                                                    <DataTrigger TargetType="Frame" Binding="{Binding Assessments[0].IsComplete}" Value="true">
+                                                        <Setter Property="BackgroundColor" Value="#558f45"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Frame" Binding="{Binding Assessments[0].IsComplete}" Value="false">
+                                                        <Setter Property="BackgroundColor" Value="White"/>
+                                                    </DataTrigger>
+                                                </Frame.Triggers>
+                                                <Label Text="{Binding Assessments[0].TypeLetter}"
+                                                   FontSize="24"
+                                                   TextColor="White"
+                                                   FontAttributes="Bold"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center">
+                                                    <Label.Triggers>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding Assessments[0].IsComplete}" Value="true">
+                                                            <Setter Property="TextColor" Value="White"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding Assessments[0].IsComplete}" Value="false">
+                                                            <Setter Property="TextColor" Value="#37474f"/>
+                                                        </DataTrigger>
+                                                    </Label.Triggers>
+                                                </Label>
+                                            </Frame>
+                                            <Frame CornerRadius="50"
+                                               HeightRequest="45"
+                                               WidthRequest="45"
+                                               Padding="0"
+                                               IsVisible="{Binding Assessments[1].Type, Converter={StaticResource NullToVisibilityConverter}}">
+                                                <Frame.Triggers>
+                                                    <DataTrigger TargetType="Frame" Binding="{Binding Assessments[1].IsComplete}" Value="true">
+                                                        <Setter Property="BackgroundColor" Value="#558f45"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Frame" Binding="{Binding Assessments[1].IsComplete}" Value="false">
+                                                        <Setter Property="BackgroundColor" Value="White"/>
+                                                    </DataTrigger>
+                                                </Frame.Triggers>
+                                                <Label Text="{Binding Assessments[1].TypeLetter}"
+                                                   x:Name="lable2"
+                                                   FontSize="24"
+                                                   TextColor="White"
+                                                   FontAttributes="Bold"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center">
+                                                    <Label.Triggers>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding Assessments[1].IsComplete}" Value="true">
+                                                            <Setter Property="TextColor" Value="White"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding Assessments[1].IsComplete}" Value="false">
+                                                            <Setter Property="TextColor" Value="#37474f"/>
+                                                        </DataTrigger>
+                                                    </Label.Triggers>
+                                                </Label>
+                                            </Frame>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
